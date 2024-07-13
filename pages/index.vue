@@ -43,7 +43,7 @@
 		display: flex;
 		justify-content: center;
 
-		filter: drop-shadow(0 0 4px #edcf5eFF);
+		filter: drop-shadow(0 0 4px black);
 	}
 
 	.farewell-olisar {
