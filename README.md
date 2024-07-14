@@ -31,7 +31,7 @@ pnpm run preview
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
 
 ## LICENSE
-Codes, without images resources is licensed by [GLWTPL](https://github.com/cfdxkk/SODA/blob/main/LICENSE).  
+Codes, without images resources is licensed by [GLWTPL](https://github.com/cfdxkk/Farewell-Olisar/blob/master/LICENSE).  
 Image resources come from VRChat.
 Powered by: KitasanYuu
 
