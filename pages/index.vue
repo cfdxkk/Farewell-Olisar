@@ -14,6 +14,8 @@
 	<div class="title2">OLISAR</div>
 	<div class="title-mini"><span>FAREWELL OLISAR</span></div>
 
+	<div class="mask"></div>
+
 	<div class="play-now-box">
 		<div class="play-now">
 			<div class="play-now-box-text">
@@ -39,6 +41,22 @@
 
 		@media (width < 1140px) {
 			background-image: url('../public/images/background-vrchat-olisar-phone.png');
+		}
+	}
+
+	.mask {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100dvh;
+		width: 100dvw;
+
+		background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.2) 60%, rgba(0, 0, 0, 0.3) 100%);
+
+		z-index: 110;
+
+		@media (width < 1140px) {
+			display: none;
 		}
 	}
 
@@ -92,10 +110,6 @@
 		user-select: none;
 		z-index: 120;
 
-		span {
-			line-height: 100px;
-		}
-
 		@media (width < 1140px) {
 			position: absolute;
 			top: 80px;
@@ -103,6 +117,7 @@
 
 			display: flex;
 			justify-content: center;
+			align-items: center;
 
 			font-size: 100px;
 			color: white;
@@ -112,8 +127,9 @@
 		}
 		
 		@media (width < 660px) {
-			min-width: 300px;
-			font-size: 50px;
+			min-width: 350px;
+			font-size: 55px;
+
 		}
 	}
 
@@ -121,6 +137,8 @@
 		position: absolute;
 		top: 650px;
 		right: 180px;
+
+		z-index: 120;
 		
 		@media (width < 1140px) {
 			position: absolute;
@@ -143,14 +161,12 @@
 		align-items: center;
 
 		color: white;
-		font-size: 20px;
+		font-size: 18px;
 		background-color: #FFFFFF40;
 		border-radius: 30px;
 		border: 2px solid #FFFFFF25;
 		cursor: pointer;
 		filter: drop-shadow(20px 40px 60px #000000A0);
-
-		z-index: 120;
 
 		transition: all 0.3s ease;
 		&:hover {
