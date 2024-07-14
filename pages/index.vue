@@ -14,7 +14,7 @@
 	<div class="title2">OLISAR</div>
 	<div class="title-mini"><span>FAREWELL OLISAR</span></div>
 
-	<div class="mask"></div>
+	<div class="mask" />
 
 	<div class="play-now-box">
 		<div class="play-now">
@@ -23,6 +23,10 @@
 				<Icon name="tdesign:jump" />
 			</div>
 		</div>
+	</div>
+
+	<div class="info-box">
+		Powered By: KitasanYuu
 	</div>
 </template>
 
@@ -42,6 +46,10 @@
 		@media (width < 1140px) {
 			background-image: url('../public/images/background-vrchat-olisar-phone.png');
 		}
+
+		@media screen and (max-aspect-ratio: 1.2/1) {
+			background-image: url('../public/images/background-vrchat-olisar-phone.png');
+		}
 	}
 
 	.mask {
@@ -55,7 +63,7 @@
 
 		z-index: 110;
 
-		@media (width < 1140px) {
+		@media screen and (max-aspect-ratio: 1.2/1) {
 			display: none;
 		}
 	}
@@ -75,9 +83,17 @@
 		font-style: italic;
 		filter: drop-shadow(20px 40px 60px #000000A0);
 		z-index: 120;
-		
-		@media (width < 1140px) {
+
+		@media screen and (max-aspect-ratio: 1.2/1) {
 			display: none;
+		}
+
+		@media (width > 2100px) {
+			right: 15dvw;
+		}
+
+		@media (width > 1140px) and (height > 1290px) {
+			top: 25dvh;
 		}
 	}
 
@@ -97,8 +113,16 @@
 		filter: drop-shadow(20px 40px 60px #000000A0);
 		z-index: 120;
 
-		@media (width < 1140px) {
+		@media screen and (max-aspect-ratio: 1.2/1) {
 			display: none;
+		}
+
+		@media (width > 2100px) {
+			right: calc(15dvw + 40px);
+		}
+
+		@media (width > 1140px) and (height > 1290px) {
+			top: calc(25dvh + 230px);
 		}
 	}
 
@@ -110,7 +134,7 @@
 		user-select: none;
 		z-index: 120;
 
-		@media (width < 1140px) {
+		@media screen and (max-aspect-ratio: 1.2/1) {
 			position: absolute;
 			top: 80px;
 			width: 100dvw;
@@ -129,7 +153,6 @@
 		@media (width < 660px) {
 			min-width: 350px;
 			font-size: 55px;
-
 		}
 	}
 
@@ -139,8 +162,16 @@
 		right: 180px;
 
 		z-index: 120;
+
+		@media (width > 1140px) and (height > 1290px) {
+			top: calc(25dvh + 570px);
+		}
 		
-		@media (width < 1140px) {
+		@media (width > 2100px) {
+			right: calc(15dvw + 80px);
+		}
+
+		@media screen and (max-aspect-ratio: 1.2/1) {
 			position: absolute;
 			top: 200px;
 			right: auto;
@@ -150,6 +181,8 @@
 			display: flex;
 			justify-content: center;
 		}
+
+		
 	}
 
 	.play-now {
@@ -180,6 +213,20 @@
 			justify-content: center;
 			align-items: center;
 			gap: 10px;
+		}
+	}
+
+	.info-box {
+		position: absolute;
+		bottom: 10px;
+		left: 10px;
+
+		cursor: help;
+		color: #FFFFFF00;
+
+		z-index: 130;
+		&:hover {
+			color: #FFFFFF50;
 		}
 	}
 </style>
