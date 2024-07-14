@@ -17,7 +17,7 @@
 	<div class="play-now-box">
 		<div class="play-now">
 			<div class="play-now-box-text">
-				现在尝试
+				进入世界
 				<Icon name="tdesign:jump" />
 			</div>
 		</div>
