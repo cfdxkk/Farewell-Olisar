@@ -9,10 +9,6 @@
     <source srcset="../public/images/background-vrchat-olisar-phone.png" media="(max-width: 1139px)">
     <img src="../public/images/background-vrchat-olisar-phone.png" alt="Preload background images">
   </picture>
-
-	<div class="farewell-olisar-box">
-		<div class="farewell-olisar"><FarewellOlisar /></div>
-	</div>
 </template>
 
 <style lang="scss" scoped>
