@@ -166,12 +166,13 @@
 		border-radius: 30px;
 		border: 2px solid #FFFFFF25;
 		cursor: pointer;
-		filter: drop-shadow(20px 40px 60px #000000A0);
+		filter: drop-shadow(10px 20px 40px #FFFFFFFF);
 
 		transition: all 0.3s ease;
 		&:hover {
 			border: 2px solid #FFFFFF50;
 			backdrop-filter: blur(20px);
+			filter: drop-shadow(5px 10px 20px #FFFFFFFF);
 		}
 
 		.play-now-box-text {
