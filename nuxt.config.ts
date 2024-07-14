@@ -2,11 +2,12 @@
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   devtools: { enabled: false },
-
   typescript: {
 		typeCheck: true
 	},
-
+	css: [
+    '@/assets/css/main.css'
+  ],
   app: {
 		head: {
 			link: [
@@ -14,5 +15,11 @@ export default defineNuxtConfig({
 			]
 		}
 	},
-  modules: ['@nuxtjs/i18n', "@nuxt/icon"]
+	googleFonts: {
+    families: {
+			Roboto: true,
+			Staatliches: true,
+		}
+	},
+  modules: ['@nuxtjs/i18n', "@nuxt/icon", "@nuxtjs/google-fonts"]
 })

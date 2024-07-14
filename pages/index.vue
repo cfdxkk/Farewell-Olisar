@@ -9,6 +9,19 @@
     <source srcset="../public/images/background-vrchat-olisar-phone.png" media="(max-width: 1139px)">
     <img src="../public/images/background-vrchat-olisar-phone.png" alt="Preload background images">
   </picture>
+
+	<div class="title1">FAREWELL</div>
+	<div class="title2">OLISAR</div>
+	<div class="title-mini"><span>FAREWELL OLISAR</span></div>
+
+	<div class="play-now-box">
+		<div class="play-now">
+			<div class="play-now-box-text">
+				现在尝试
+				<Icon name="tdesign:jump" />
+			</div>
+		</div>
+	</div>
 </template>
 
 <style lang="scss" scoped>
@@ -29,21 +42,127 @@
 		}
 	}
 
-	.farewell-olisar-box {
+	.title1 {
+		display: block;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
 		position: absolute;
-		top: 50px;
-		left: 0;
+		top: 80px;
+		right: 100px;
+		font-size: 270px;
+		color: white;
+		font-family: 'Staatliches';
+		font-style: italic;
+		filter: drop-shadow(20px 40px 60px #000000A0);
+		z-index: 120;
+		
+		@media (width < 1140px) {
+			display: none;
+		}
+	}
 
-		width: 100%;
+	.title2 {
+		display: block;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		position: absolute;
+		top: 310px;
+		right: 140px;
+		font-size: 270px;
+		color: white;
+		font-family: 'Staatliches';
+		font-style: italic;
+		filter: drop-shadow(20px 40px 60px #000000A0);
+		z-index: 120;
+
+		@media (width < 1140px) {
+			display: none;
+		}
+	}
+
+	.title-mini {
+		display: none;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		z-index: 120;
+
+		span {
+			line-height: 100px;
+		}
+
+		@media (width < 1140px) {
+			position: absolute;
+			top: 80px;
+			width: 100dvw;
+
+			display: flex;
+			justify-content: center;
+
+			font-size: 100px;
+			color: white;
+			font-family: 'Staatliches';
+			font-style: italic;
+			filter: drop-shadow(20px 40px 60px #000000A0);
+		}
+		
+		@media (width < 660px) {
+			min-width: 300px;
+			font-size: 50px;
+		}
+	}
+
+	.play-now-box {
+		position: absolute;
+		top: 650px;
+		right: 180px;
+		
+		@media (width < 1140px) {
+			position: absolute;
+			top: 200px;
+			right: auto;
+
+			width: 100dvw;
+
+			display: flex;
+			justify-content: center;
+		}
+	}
+
+	.play-now {
+		height: 56px;
+		width: 300px;
 
 		display: flex;
 		justify-content: center;
+		align-items: center;
 
-		filter: drop-shadow(0 0 4px black);
-	}
+		color: white;
+		font-size: 20px;
+		background-color: #FFFFFF40;
+		border-radius: 30px;
+		border: 2px solid #FFFFFF25;
+		cursor: pointer;
+		filter: drop-shadow(20px 40px 60px #000000A0);
 
-	.farewell-olisar {
-		max-width: 1300px;
-		width: 90%;
+		z-index: 120;
+
+		transition: all 0.3s ease;
+		&:hover {
+			border: 2px solid #FFFFFF50;
+			backdrop-filter: blur(20px);
+		}
+
+		.play-now-box-text {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: 10px;
+		}
 	}
 </style>

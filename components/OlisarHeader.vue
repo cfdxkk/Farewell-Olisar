@@ -1,4 +1,24 @@
 <script lang="ts" setup>
+	const comments = ref<string[]>([
+		'"难以置信的还原度，可见制作者对每一处细节的精心雕琢。这是我在 VRChat 中游玩过的建模最精致的地图之一。"',
+		'"奥丽莎港是每个星际公民的家，我想没有人会不喜欢这张地图。"',
+		'"It was incredible that I could go to the Port Olisar again. The one-to-one restoration of the in-game model was so touching!"',
+		'"太强了！"　　"有一瞬间还以为在玩星际公民！"　　"和星际公民一样会被走廊的扶手卡住！"　　"不穿基底服真的没事吗？"',
+	])
+	const activeCommentsIndex = ref(0)
+	const isHoverComment = ref(false)
+
+	onMounted(() => {
+		setInterval(() => {
+			if (!isHoverComment.value) {
+				if (activeCommentsIndex.value < comments.value.length - 1) {
+					activeCommentsIndex.value += 1
+				} else {
+					activeCommentsIndex.value = 0
+				}
+			}
+		}, 15000)
+	})
 </script>
 
 <template>
@@ -9,10 +29,12 @@
 			<div class="header-item"><span class="header-item-text">创作故事</span></div>
 		</div>
 		<div class="header-comment-box">
-			<div class="header-comment-text-box">
-				<div class="header-comment-text">
-					"无与伦比的还原度，来自对每一处细节的精心雕琢。这是我在 VRChat 中游玩过的建模最精致的地图之一，由衷的敬佩制作者。"
-				</div>
+			<div class="header-comment-text-box" @mouseenter="isHoverComment = true" @mouseleave="isHoverComment = false">
+				<Transition name="comments" mode="out-in">
+					<div :key="activeCommentsIndex" class="header-comment-text">
+						{{ comments[activeCommentsIndex] }}
+					</div>
+				</Transition>
 			</div>
 			<div class="header-item header-comment-add-box" title="添加留言">
 				<Icon name="material-symbols:add" />
@@ -67,7 +89,6 @@
 		margin: 0 30px;
 	}
 
-
 	.header-comment-box {
 		flex: 1;
 
@@ -75,6 +96,10 @@
 		gap: 10px;
 
 		margin-left: 10px;
+		
+		@media (width < 1140px) {
+			flex: none;
+		}
 	}
 
 	.header-comment-text-box {
@@ -86,6 +111,7 @@
 		justify-content: center;
 
 		padding-left: 20px;
+		overflow-y: hidden;
 
 		cursor: text;
 		border-radius: 20px;
@@ -106,7 +132,10 @@
 
 	.header-comment-text {
 		filter: drop-shadow(0 0 4px #222222FF);
-		font-size: 16px;
+		font-size: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 	}
 
 	.header-comment-add-box {
@@ -132,6 +161,21 @@
 			border: 2px solid #FFFFFF50;
 			backdrop-filter: blur(20px);
 		}
+	}
+
+	.comments-enter-active,
+	.comments-leave-active {
+		transition: all 0.25s ease-out;
+	}
+
+	.comments-enter-from {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+	
+	.comments-leave-to {
+		opacity: 0;
+		transform: translateY(-30px);
 	}
 	
 </style>
