@@ -32,6 +32,6 @@ Check out the [deployment documentation](https://nuxt.com/docs/getting-started/d
 
 ## LICENSE
 Codes, without images resources is licensed by [GLWTPL](https://github.com/cfdxkk/Farewell-Olisar/blob/master/LICENSE).  
-Image resources come from VRChat.
+Images resources from VRChat.  
 Powered by: KitasanYuu
 
