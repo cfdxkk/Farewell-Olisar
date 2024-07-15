@@ -24,7 +24,7 @@
 <template>
 	<div class="header">
 		<div class="header-item-box">
-			<div class="header-item"><span class="header-item-text">地图链接</span></div>
+			<div class="header-item"><span class="header-item-text">活动预告</span></div>
 			<div class="header-item"><span class="header-item-text">参与开发</span></div>
 			<div class="header-item"><span class="header-item-text">创作故事</span></div>
 		</div>
@@ -56,6 +56,11 @@
 
 	.header-item-box {
 		margin-left: 40px;
+		
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
 
 		height: 100%;
     display: flex;

@@ -1,4 +1,7 @@
 <script lang="ts" setup>
+	function jump2World() {
+		window.open("https://robertsspaceindustries.com/star-citizen", "_blank")
+	}
 
 </script>
 
@@ -16,9 +19,9 @@
 
 	<div class="mask" />
 
-	<div class="play-now-box">
-		<div class="play-now">
-			<div class="play-now-box-text">
+	<div class="playable-now-box">
+		<div class="playable-now" @click="jump2World">
+			<div class="playable-now-box-text">
 				进入世界
 				<Icon name="tdesign:jump" />
 			</div>
@@ -66,6 +69,10 @@
 		@media screen and (max-aspect-ratio: 1.2/1) {
 			display: none;
 		}
+		
+		@media (width < 1140px) {
+			display: none;
+		}
 	}
 
 	.title1 {
@@ -87,13 +94,21 @@
 		@media screen and (max-aspect-ratio: 1.2/1) {
 			display: none;
 		}
+		
+		@media (height < 750px) {
+			display: none;
+		}
 
 		@media (width > 2100px) {
 			right: 15dvw;
 		}
 
-		@media (width > 1140px) and (height > 1290px) {
+		@media (width > 1140px) and (height > 1100px) {
 			top: 25dvh;
+		}
+
+		@media (width < 1140px) {
+			display: none;
 		}
 	}
 
@@ -116,13 +131,21 @@
 		@media screen and (max-aspect-ratio: 1.2/1) {
 			display: none;
 		}
+		
+		@media (height < 750px) {
+			display: none;
+		}
 
 		@media (width > 2100px) {
 			right: calc(15dvw + 40px);
 		}
 
-		@media (width > 1140px) and (height > 1290px) {
+		@media (width > 1140px) and (height > 1100px) {
 			top: calc(25dvh + 230px);
+		}
+
+		@media (width < 1140px) {
+			display: none;
 		}
 	}
 
@@ -149,6 +172,22 @@
 			font-style: italic;
 			filter: drop-shadow(20px 40px 60px #000000A0);
 		}
+
+		@media (width < 1140px) {
+			position: absolute;
+			top: 80px;
+			width: 100dvw;
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			font-size: 100px;
+			color: white;
+			font-family: 'Staatliches';
+			font-style: italic;
+			filter: drop-shadow(20px 40px 60px #000000A0);
+		}
 		
 		@media (width < 660px) {
 			min-width: 350px;
@@ -156,14 +195,20 @@
 		}
 	}
 
-	.play-now-box {
+	.playable-now-box {
 		position: absolute;
 		top: 650px;
 		right: 180px;
+		
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		
 
 		z-index: 120;
 
-		@media (width > 1140px) and (height > 1290px) {
+		@media (width > 1140px) and (height > 1100px) {
 			top: calc(25dvh + 570px);
 		}
 		
@@ -182,10 +227,26 @@
 			justify-content: center;
 		}
 
-		
+		@media (height < 750px) and (width > 1140px) {
+			top: 0;
+			height: 100dvh;
+			display: flex;
+			align-items: center;
+		}
+
+		@media (width < 1140px) {
+			position: absolute;
+			top: 200px;
+			right: auto;
+
+			width: 100dvw;
+
+			display: flex;
+			justify-content: center;
+		}
 	}
 
-	.play-now {
+	.playable-now {
 		height: 56px;
 		width: 300px;
 
@@ -208,7 +269,7 @@
 			filter: drop-shadow(5px 10px 20px #FFFFFFFF);
 		}
 
-		.play-now-box-text {
+		.playable-now-box-text {
 			display: flex;
 			justify-content: center;
 			align-items: center;

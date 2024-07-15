@@ -3,7 +3,7 @@
 # Farewell Olisar
 Farewell Olisar Project Guide Website.
 
-Check the [Online Demo](https://farewell-olisar.vercel.app/).
+Check the [Website](https://farewell-olisar.vercel.app/).
 
 ## Setup
 
