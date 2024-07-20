@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 	function jump2World() {
-		window.open("https://robertsspaceindustries.com/star-citizen", "_blank")
+		window.open("https://vrchat.com/home/world/wrld_fbbcac35-6290-4db1-bd61-9178863e9b3b", "_blank")
 	}
 
 </script>
@@ -22,7 +22,7 @@
 	<div class="playable-now-box">
 		<div class="playable-now" @click="jump2World">
 			<div class="playable-now-box-text">
-				进入世界
+				进入世界（Beta 测试版）
 				<Icon name="tdesign:jump" />
 			</div>
 		</div>
