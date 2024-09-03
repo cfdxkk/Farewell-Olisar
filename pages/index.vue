@@ -7,11 +7,10 @@
 
 <template>
 	<div class="background-box"/>
-	<picture style="display: none;">
-    <source srcset="../public/images/background-vrchat-olisar.png" media="(min-width: 1140px)">
-    <source srcset="../public/images/background-vrchat-olisar-phone.png" media="(max-width: 1139px)">
-    <img src="../public/images/background-vrchat-olisar-phone.png" alt="Preload background images">
-  </picture>
+	<picture v-show="false">
+		<source srcset="../public/images/background-vrchat-olisar.png" media="(min-width: 1140px)">
+		<source srcset="../public/images/background-vrchat-olisar-phone.png" media="(max-width: 1139px)">
+	</picture>
 
 	<div class="title1">FAREWELL</div>
 	<div class="title2">OLISAR</div>

@@ -51,7 +51,6 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-
 	}
 
 	.header-item-box {
@@ -63,11 +62,11 @@
 		user-select: none;
 
 		height: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 10px;
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-start;
+		align-items: center;
+		gap: 10px;
 	}
 
 	.header-item {
