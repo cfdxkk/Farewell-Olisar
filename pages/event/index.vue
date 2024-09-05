@@ -1,10 +1,11 @@
 <script setup lang="ts">
-
 </script>
 
 <template>
 	<div class="event-list-box">
-		aaaaa
+		<div class="event-item-box">
+			<EventItem />
+		</div>
 	</div>
 </template>
 
@@ -17,6 +18,15 @@
 		width: 100%;
 		height: 100%;
 
-		background-color: #EEEEEEFF;
+		display: flex;
+		justify-content: center;
+
+		.event-item-box {
+			width: min(80%, 1200px);
+
+			@media screen and (max-aspect-ratio: 1.2/1) {
+				width: min(95%, 1200px);
+			}
+		}
 	}
 </style>

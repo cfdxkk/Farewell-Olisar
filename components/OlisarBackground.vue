@@ -74,11 +74,9 @@
 	}
 
 	.title1 {
+		@include disable-user-select;
+
 		display: block;
-		-webkit-user-select: none;
-		-moz-user-select: none;
-		-ms-user-select: none;
-		user-select: none;
 		position: absolute;
 		top: 80px;
 		right: 100px;
@@ -111,11 +109,9 @@
 	}
 
 	.title2 {
+		@include disable-user-select;
+
 		display: block;
-		-webkit-user-select: none;
-		-moz-user-select: none;
-		-ms-user-select: none;
-		user-select: none;
 		position: absolute;
 		top: 310px;
 		right: 140px;
@@ -148,11 +144,10 @@
 	}
 
 	.title-mini {
+		@include disable-user-select;
+
 		display: none;
-		-webkit-user-select: none;
-		-moz-user-select: none;
-		-ms-user-select: none;
-		user-select: none;
+
 		z-index: 120;
 
 		@media screen and (max-aspect-ratio: 1.2/1) {
@@ -198,11 +193,7 @@
 		top: 650px;
 		right: 180px;
 		
-		-webkit-user-select: none;
-		-moz-user-select: none;
-		-ms-user-select: none;
-		user-select: none;
-		
+		@include disable-user-select;
 
 		z-index: 120;
 

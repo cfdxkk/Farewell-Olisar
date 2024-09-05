@@ -1,7 +1,4 @@
 <script lang="ts" setup>
-	import { useSystemSettingStore } from '~/store/SystemSettings';
-
-	const systemSettingStore = useSystemSettingStore()
 	const isLoading = ref(true)
 	const route = useRoute()
 	const isLightBackground = computed(() => route.path !== '/')
@@ -27,11 +24,9 @@
 	<div class="background-box">
 		<slot name="background" />
 	</div>
-	<Transition :name="systemSettingStore.pageAnimationName">
-		<div :key="systemSettingStore.pageAnimationName" class="content-box">
-			<NuxtPage />
-		</div>
-	</Transition>
+	<div class="content-box" :class="{ 'light-background': isLightBackground }">
+		<NuxtPage />
+	</div>
 	<Transition name="loading-screen" mode="out-in">
 		<div v-if="isLoading" class="loading" :class="{ invert: isLightBackground }">
 			加载中
@@ -83,8 +78,18 @@
 
 		width: 100dvw;
 		height: calc(100dvh - #{$header-height});
+		pointer-events: none;
+		background-color: #EEEEEEFF;
+		opacity: 0;
+		overflow-y: auto;
 
-		z-index: 110
+		z-index: 110;
+
+		transition: opacity 0.3s ease;
+		&.light-background {
+			opacity: 1;
+			pointer-events: auto;
+		}
 	}
 
 	.loading {

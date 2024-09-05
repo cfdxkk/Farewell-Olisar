@@ -12,6 +12,13 @@
 	const isLightBackground = computed(() => route.path !== '/')
 
 	/**
+	 * 回到主页
+	 */
+	function handleBack2Home() {
+		navigateTo('/')
+	}
+	
+	/**
 	 * 开启活动预告页面
 	 */
 	async function handleOpenEventPreviewList() {
@@ -35,9 +42,9 @@
 	<div class="header">
 		<div class="header-changeable-background" :class="{ expand: isLightBackground }" />
 		<div class="header-item-box" :class="{ invert: isLightBackground }">
-			<div class="header-item"><span class="header-item-text" @click="handleOpenEventPreviewList">活动预告</span></div>
+			<div class="header-item" @click="handleBack2Home"><span class="header-item-text">返回首页</span></div>
+			<div class="header-item" @click="handleOpenEventPreviewList"><span class="header-item-text">活动预告</span></div>
 			<div class="header-item"><span class="header-item-text">参与开发</span></div>
-			<div class="header-item"><span class="header-item-text">创作故事</span></div>
 		</div>
 		<div class="header-comment-box" :class="{ invert: isLightBackground }">
 			<div class="header-comment-text-box" @mouseenter="isHoverComment = true" @mouseleave="isHoverComment = false">
@@ -55,7 +62,7 @@
 </template>
 
 <style lang="scss" scoped>
-	$header-min-width: 530px;
+	$header-min-width: 770px;
 
 	.invert {
 		filter: invert(1);
@@ -94,11 +101,8 @@
 
 	.header-item-box {
 		margin-left: 40px;
-		
-		-webkit-user-select: none;
-		-moz-user-select: none;
-		-ms-user-select: none;
-		user-select: none;
+
+		@include disable-user-select;
 
 		height: 100%;
 		display: flex;
@@ -147,8 +151,8 @@
 		margin-left: 10px;
 
 		transition: filter 0.3s ease;
-		
-		@media (width < 1140px) {
+
+		@media screen and (max-aspect-ratio: 1.2/1) {
 			flex: none;
 		}
 	}
@@ -176,12 +180,14 @@
 			color: #EEEEEEFF;
 		}
 
-		@media (width < 1500px) {
+		@media (width < 1600px) {
 			display: none;
 		}
 	}
 
 	.header-comment-text {
+		@include disable-user-select;
+
 		filter: drop-shadow(0 0 4px #222222FF);
 		font-size: 15px;
     white-space: nowrap;
