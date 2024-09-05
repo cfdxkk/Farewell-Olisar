@@ -20,8 +20,8 @@
 	<div class="header-box">
 		<slot name="header" />
 	</div>
-	<div class="content-box">
-		<slot name="content" />
+	<div class="background-box">
+		<slot name="background" />
 	</div>
 	<Transition name="loading-screen" mode="out-in">
 		<div v-if="isLoading" class="loading" >
@@ -43,7 +43,7 @@
 
 		z-index: 110;
 	}
-	.content-box {
+	.background-box {
 		position: absolute;
 		top: 0;
 		left: 0;

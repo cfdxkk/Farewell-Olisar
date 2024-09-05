@@ -2,7 +2,6 @@
 	function jump2World() {
 		window.open("https://vrchat.com/home/world/wrld_fbbcac35-6290-4db1-bd61-9178863e9b3b", "_blank")
 	}
-
 </script>
 
 <template>

@@ -9,9 +9,10 @@
 		<template v-slot:header>
 			<OlisarHeader />
 		</template>
-		<template v-slot:content>
-			<NuxtPage />
+		<template v-slot:background>
+			<OlisarBackground />
 		</template>
+		<NuxtPage />
   </NuxtLayout>
 </template>
 
