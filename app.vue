@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+	const route = useRoute()
 	useHead({
 		title: 'Farewell Olisar',
 	})
@@ -12,7 +13,6 @@
 		<template v-slot:background>
 			<OlisarBackground />
 		</template>
-		<NuxtPage />
   </NuxtLayout>
 </template>
 

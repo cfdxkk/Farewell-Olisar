@@ -5,15 +5,17 @@
 		"'It was incredible that I could go to the Port Olisar again. The one-to-one restoration of the in-game model was so touching!'",
 		'「太强了！」　　「有一瞬间还以为在玩星际公民！」　　「和星际公民一样会被走廊的扶手卡住！」　　「不穿基底服真的没事吗？」',
 	])
-	const activeCommentsIndex = ref(0)
-	const isHoverComment = ref(false)
-	const isLightBackground = ref(false) // header 是否开启白色背景
+	const activeCommentsIndex = ref(0) // 正在活跃的评论的索引
+	const isHoverComment = ref(false) // 是否 hover 评论栏
+
+	const route = useRoute()
+	const isLightBackground = computed(() => route.path !== '/')
 
 	/**
 	 * 开启活动预告页面
 	 */
-	function handleOpenEventPreviewList() {
-		isLightBackground.value = true;
+	async function handleOpenEventPreviewList() {
+		await navigateTo('/event')
 	}
 
 	onMounted(() => {
@@ -53,6 +55,8 @@
 </template>
 
 <style lang="scss" scoped>
+	$header-min-width: 530px;
+
 	.invert {
 		filter: invert(1);
 		.header-comment-text {
@@ -61,8 +65,8 @@
 	}
 
 	.header {
-		min-width: 530px;
-		height: 56px;
+		min-width: $header-min-width;
+		height: $header-height;
 
 		display: flex;
 		justify-content: center;
@@ -78,11 +82,11 @@
 
 		width: 100%;
 		height: 0%;
+		min-width: $header-min-width;
 		
 		background-color: #EEEEEEFF;
 
 		transition: height 0.3s ease;
-
 		&.expand {
 			height: 100%;
 		}
@@ -226,5 +230,4 @@
 		opacity: 0;
 		transform: translateY(-30px);
 	}
-	
 </style>

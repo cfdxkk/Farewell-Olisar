@@ -6,8 +6,18 @@ export default defineNuxtConfig({
 		typeCheck: true
 	},
 	css: [
-    '@/assets/css/main.css'
+    '@/assets/style/main.css',
+    '@/assets/style/animation.css',
   ],
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: `@import '@/assets/style/variables.scss';\n`
+        }
+      }
+    }
+  },
   app: {
 		head: {
 			link: [
@@ -21,5 +31,5 @@ export default defineNuxtConfig({
 			Staatliches: true,
 		}
 	},
-  modules: ['@nuxtjs/i18n', "@nuxt/icon", "@nuxtjs/google-fonts"]
+  modules: ['@nuxtjs/i18n', '@nuxt/icon', '@nuxtjs/google-fonts', '@pinia/nuxt', 'pinia-plugin-persistedstate/nuxt']
 })
