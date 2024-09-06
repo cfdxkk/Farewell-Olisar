@@ -62,7 +62,7 @@
 </template>
 
 <style lang="scss" scoped>
-	$header-min-width: 770px;
+	$header-min-width: 550px;
 
 	.invert {
 		filter: invert(1);
@@ -80,6 +80,10 @@
 		align-items: center;
 
 		z-index: 900;
+		
+		@media (width < 620px) {
+			justify-content: left;
+		}
 	}
 
 	.header-changeable-background {

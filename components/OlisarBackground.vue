@@ -183,7 +183,6 @@
 		}
 		
 		@media (width < 660px) {
-			min-width: 350px;
 			font-size: 55px;
 		}
 	}
