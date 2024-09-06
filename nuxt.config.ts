@@ -30,5 +30,5 @@ export default defineNuxtConfig({
 			Staatliches: true,
 		}
 	},
-  modules: ['@nuxtjs/i18n', '@nuxt/icon', '@nuxtjs/google-fonts', '@pinia/nuxt', 'pinia-plugin-persistedstate/nuxt']
+  modules: ['@nuxtjs/i18n', '@nuxt/icon', '@nuxtjs/google-fonts']
 })

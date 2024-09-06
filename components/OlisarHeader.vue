@@ -11,6 +11,8 @@
 	const route = useRoute()
 	const isLightBackground = computed(() => route.path !== '/')
 
+	const { data } = await useFetch('/api/hello')
+
 	/**
 	 * 回到主页
 	 */

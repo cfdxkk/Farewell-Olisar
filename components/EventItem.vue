@@ -1,11 +1,46 @@
 <script setup lang="ts">
+	const isStartingEnroll = ref(false)
+	const enrollInput = ref()
+	const enrollPhoneNumber = ref('')
 
+	/**
+	 * 开启或关闭电话号输入框
+	 */
+	function handleStartingEnroll() {
+		isStartingEnroll.value = !isStartingEnroll.value;
+	}
+
+	/**
+	 * 通过电话号提交报名
+	 */
+	async function enrollByPhone() {
+		try {
+			const { data, error } = await useFetch('/api/event/enroll-event', {
+				method: 'POST',
+				body: {
+					eventId: 1,
+					phoneNumber: enrollPhoneNumber.value
+				}
+			})
+
+			if (error.value) {
+				console.error('Error during request:', error.value)
+			} else {
+				console.log('Enrollment successful:', data.value)
+			}
+		} catch (err) {
+			console.error('Request failed:', err)
+		}
+	}
 </script>
 
 <template>
 	<div class="event-item">
-		<div class="event-title">
+		<!-- <div class="event-title">
 			2954 公民控 - 虚拟线上观赏会
+		</div> -->
+		<div class="event-title">
+			2954 CItizenCon - VRChat Online
 		</div>
 
 		<div class="event-date">
@@ -34,8 +69,17 @@
 		</div>
 
 		<div class="enroll-box">
-			<div class="enroll-button">立即报名</div>
-			<div class="enroll-count">3/50</div>
+			<div class="enroll-button" @click="handleStartingEnroll">{{ isStartingEnroll ? '取消报名' : '开始报名' }}</div>
+			<Transition name="enroll-input" mode="out-in">
+				<div class="enroll" v-if="isStartingEnroll">
+					<div class="enroll-phone-input-box">
+						<div class="enroll-phone-location-number">+86</div>
+						<input id="enroll-phone-input" ref="enrollInput" type="text" class="enroll-phone-input" placeholder="请输入手机号" v-model="enrollPhoneNumber"/>
+					</div>
+					<div class="enroll-submit-button" @click="enrollByPhone">提交</div>
+				</div>
+				<div class="enroll-count" v-else>3/50</div>
+			</Transition>
 		</div>
 	</div>
 </template>
@@ -137,13 +181,12 @@
 			margin-top: 15px;
 			margin-bottom: 40px;
 
-			width: 250px;
+			width: calc(100% - var(--margin-left-right) - var(--margin-left-right));
 
 			display: flex;
 			align-items: center;
 
 			@media screen and (max-aspect-ratio: 1.2/1) {
-				width: calc(100% - var(--margin-left-right) - var(--margin-left-right));
 				margin-top: 20px;
 				flex-direction: column;
 			}
@@ -152,7 +195,7 @@
 				@include disable-user-select;
 
 				height: 50px;
-				width: 100%;
+				width: 200px;
 
 				display: flex;
 				justify-content: center;
@@ -168,14 +211,113 @@
 					color: #000000EE;
 					background-color: #00000020;
 				}
+
+				@media screen and (max-aspect-ratio: 1.2/1) {
+					width: 100%;
+				}
+			}
+
+			.enroll {
+				width: 600px;
+				display: flex;
+				gap: 10px;
+
+				.enroll-phone-input-box {
+					margin-left: 10px;
+
+					height: 50px;
+					flex: 0.6;
+
+					border-radius: 25px;
+					color: #000000DD;
+					background-color: #00000010;
+
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					gap: 8px;
+
+					transition: background-color 0.3s ease, color 0.3s ease;
+					&:hover {
+						color: #000000EE;
+						background-color: #00000020;
+					}
+					
+					@media screen and (max-aspect-ratio: 1.2/1) {
+						margin-left: 0;
+						width: 100%;
+					}
+
+					.enroll-phone-location-number {
+						@include disable-user-select;
+
+						margin-left: 20px;
+
+						flex: 0.2;
+    				max-width: 35px;
+					}
+
+					.enroll-phone-input {
+						margin-right: 20px;
+
+						flex: 1;
+						height: 30px;
+						
+						border: none;       /* 移除边框 */
+						outline: none;      /* 移除点击时的高亮框 */
+						background: none;   /* 移除默认背景 */
+						box-shadow: none;   /* 移除阴影 */
+						padding: 0;         /* 重置内边距 */
+						margin: 0;          /* 重置外边距 */
+
+						padding-top: 3px;
+						font-size: 17px;
+					}
+				}
+
+				.enroll-submit-button {
+					@include disable-user-select;
+
+					height: 50px;
+					flex: 0.4;
+
+					display: flex;
+					justify-content: center;
+					align-items: center;
+
+					border-radius: 25px;
+					cursor: pointer;
+					color: #000000DD;
+					background-color: #00000010;
+
+					transition: background-color 0.3s ease, color 0.3s ease;
+					&:hover {
+						color: #000000EE;
+						background-color: #00000020;
+					}
+
+					@media screen and (max-aspect-ratio: 1.2/1) {
+						width: 100%;
+					}
+				}
+
+				@media screen and (max-aspect-ratio: 1.2/1) {
+					width: 100%;
+					margin-top: 10px;
+				}
 			}
 
 			.enroll-count {
 				margin-left: 20px;
+
+				height: 50px;
+
+				display: flex;
+				align-items: center;
 				
 				@media screen and (max-aspect-ratio: 1.2/1) {
+					margin-top: 5px;
 					margin-left: 0;
-					margin-top: 10px;
 				}
 			}
 		}
@@ -183,6 +325,15 @@
 		@media screen and (max-aspect-ratio: 1.2/1) {
 			--margin-left-right: 20px;
 		};
+	}
 
+	.enroll-input-enter-active,
+	.enroll-input-leave-active {
+		transition: opacity 0.3s ease;
+	}
+
+	.enroll-input-enter-from,
+	.enroll-input-leave-to {
+		opacity: 0;
 	}
 </style>
