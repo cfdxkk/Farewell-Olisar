@@ -1,0 +1,12 @@
+// 旋转动画混入
+@mixin rotate-animation($duration) {
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  animation: rotate $duration linear infinite;
+}
